@@ -6,10 +6,10 @@ def index(request):
     from hfapp.models.color import Color
     
     lines = [
-        "Red       == red?       %s" % (Color.objects.get(pk="red") == Color.RED),
-        "Green     == green?     %s" % (Color.objects.get(pk="green") == Color.GREEN),
-        "Blue      == blue?      %s" % (Color.objects.get(pk="blue") == Color.BLUE),
-        "Colorless == colorless? %s" % (Color.objects.get(pk="colorless") == Color.COLORLESS)
+        "Red       == red?       %s" % (Color.objects.get(pk='1R') == Color.RED),
+        "Green     == green?     %s" % (Color.objects.get(pk='2G') == Color.GREEN),
+        "Blue      == blue?      %s" % (Color.objects.get(pk='3B') == Color.BLUE),
+        "Colorless == colorless? %s" % (Color.objects.get(pk='4_') == Color.COLORLESS)
     ]
     
-    return HttpResponse('\n'.join(lines))
+    return HttpResponse('<br>'.join(lines))

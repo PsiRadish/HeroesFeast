@@ -1,15 +1,17 @@
-from django.db import models as modjels
-from hfapp.constants import COLOR
+from django.db import models as djangorm
+import django.db.utils
 from util import staticproperty
 
+# declare identifiers for Color constants
 RED       = None
 GREEN     = None
 BLUE      = None
 COLORLESS = None
 
-class Color(modjels.Model):
+class Color(djangorm.Model):
 #{
-    name = modjels.CharField(max_length=10, primary_key=True)
+    id   = djangorm.CharField(max_length=2, primary_key=True)
+    name = djangorm.CharField(max_length=10)
     
     def __str__(self):
         return self.name
@@ -30,8 +32,11 @@ class Color(modjels.Model):
         return COLORLESS
 #}
 
-# I am a genius!
-RED       = Color(name=COLOR.RED)
-GREEN     = Color(name=COLOR.GREEN)
-BLUE      = Color(name=COLOR.BLUE)
-COLORLESS = Color(name=COLOR.COLORLESS)
+# give constants their values now that Color is defined
+try:
+    RED       = Color.objects.filter(pk='1R').first() #, name='red')
+    GREEN     = Color.objects.filter(pk='2G').first() #, name='green')
+    BLUE      = Color.objects.filter(pk='3B').first() #, name='blue')
+    COLORLESS = Color.objects.filter(pk='4_').first() #, name='colorless')
+except django.db.utils.OperationalError:
+    pass

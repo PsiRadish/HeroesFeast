@@ -1,5 +1,5 @@
 from django.contrib import admin
-import .models as models
+import hfapp.models as models
 
 # Register your models here.
 admin.site.register(models.Color)
