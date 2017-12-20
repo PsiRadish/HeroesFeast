@@ -4,7 +4,7 @@ from util import staticproperty
 
 from hfapp.models.color import Color
 from hfapp.models.validators import InListValidator
-from hfapp.constants import STAT
+from hfapp.constants import STATS
 
 # declare identifiers for WeaponGroup constants
 GROUP_SWORD  = None
@@ -65,7 +65,7 @@ except django.db.utils.OperationalError:
     pass
 
 validate_range = InListValidator([1, 2], code="validate_range")
-validate_stat = InListValidator(STAT.values(), code="validate_stat")
+validate_stat = InListValidator(STATS, code="validate_stat")
 
 class WeaponType(djangorm.Model):
 #{
