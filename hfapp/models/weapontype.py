@@ -1,7 +1,8 @@
+import json
 from django.db import models as djangorm
 import django.db.utils
-from util import staticproperty
 
+from util import staticproperty
 from hfapp.models.color import Color
 from hfapp.models.validators import InListValidator
 from hfapp.constants import STATS
@@ -75,4 +76,9 @@ class WeaponType(djangorm.Model):
     color   = djangorm.ForeignKey(Color,       on_delete=djangorm.PROTECT, related_name='weapon_types_of_color')
     range   = djangorm.PositiveSmallIntegerField(validators=[validate_range])
     vs_stat = djangorm.CharField(max_length=3, validators=[validate_stat])
+    
+    def __str__(self):
+        return self.name
+    def __repr__(self):
+        return 'WeaponType %s' % json.dumps(self, indent='  ')
 #}
