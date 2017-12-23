@@ -29,12 +29,15 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="hfapp\models\defaultskill.py" />
+    <Compile Include="hfapp\models\hero.py" />
+    <Compile Include="hfapp\models\movementtype.py" />
+    <Compile Include="hfapp\models\skillrequirement.py" />
     <Compile Include="manage.py" />
     <Compile Include="util.py" />
     <Compile Include="hfapp\admin.py" />
     <Compile Include="hfapp\apps.py" />
     <Compile Include="hfapp\constants.py" />
-    <Compile Include="hfapp\models.py" />
     <Compile Include="hfapp\tests.py" />
     <Compile Include="hfapp\urls.py" />
     <Compile Include="hfapp\views.py" />
@@ -67,9 +70,10 @@
     <Folder Include="hfsite\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include=".gitignore" />
+    <Content Include="hfapp\master.sqlite3" />
     <Content Include="manage.bat" />
     <Content Include="requirements.txt" />
-    <Content Include="hfapp\db.sqlite3" />
     <Content Include="hfapp\static\js\_references.js" />
   </ItemGroup>
   <ItemGroup>

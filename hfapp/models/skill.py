@@ -5,7 +5,7 @@ from django.utils.deconstruct import deconstructible
 from django.utils.translation import gettext_lazy as _
 from util import staticproperty
 
-from hfapp.models.weapontype import WeaponType
+from hfapp.models import WeaponType
 
 # declare identifiers for SkillType constants
 SKILLTYPE_WEAPON  = None
